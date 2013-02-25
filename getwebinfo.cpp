@@ -39,7 +39,8 @@ QString GetWebInfo::saveFileName(const QUrl &url)
 bool GetWebInfo::saveToDisk(const QString &filename, QIODevice *data)
 {
     QFile file(filename);
-    if (!file.open(QIODevice::WriteOnly)) {
+
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
         fprintf(stderr, "Could not open %s for writing: %s\n",
                 qPrintable(filename),
                 qPrintable(file.errorString()));

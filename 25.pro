@@ -9,7 +9,7 @@ DEPENDPATH += .
 INCLUDEPATH += .
 QT       += network
 
-TARGET = 25
+TARGET = PM25
 TEMPLATE = app
 
 SOURCES += main.cpp\
