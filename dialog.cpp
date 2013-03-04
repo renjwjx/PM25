@@ -6,11 +6,14 @@
 #include <QDesktopServices>
 #include <QTextCodec>
 
+#define URL_QUERY
+
 QString url_str = "http://utils.usembassy.gov/feed2js/feed2js.php";
 QString url_query = "http://www.beijingaqifeed.com/shanghaiaqi/shanghaiairrss.xml&desc=1&num=18&targ=y&utf=y&pc=y&words=40&";
 QString url_query_key = "src";
 
 QString url = "http://utils.usembassy.gov/feed2js/feed2js.php?src=http%3A%2F%2Fwww.beijingaqifeed.com%2Fshanghaiaqi%2Fshanghaiairrss.xml&desc=1&num=18&targ=y&utf=y&pc=y&words=40&";
+QUrl pm_url = QUrl::fromEncoded("http://utils.usembassy.gov/feed2js/feed2js.php?src=http%3A%2F%2Fwww.beijingaqifeed.com%2Fshanghaiaqi%2Fshanghaiairrss.xml&desc=1&num=18&targ=y&utf=y&pc=y&words=40&");
 
 QString url_xml = "http://www.beijingaqifeed.com/shanghaiaqi/shanghaiairrss.xml";
 
@@ -41,12 +44,6 @@ Dialog::~Dialog()
 void Dialog::on_pushButton_clicked()
 {
 #ifdef URL_QUERY
-    QUrl pm_url = url_str;
-    QByteArray byte;
-    byte = byte.append(url_query_key);
-    byte = byte.append("=");
-    byte = byte.append(url_query);
-    pm_url.setEncodedQuery(byte);
 
     WebInfo->doDownload(pm_url);
 #else
