@@ -1,5 +1,6 @@
 #include "getwebinfo.h"
 
+
 GetWebInfo::GetWebInfo(QObject *parent) :
     QObject(parent)
 {
@@ -11,12 +12,20 @@ GetWebInfo::GetWebInfo(QObject *parent) :
     proxy.setPort(80);
     proxy.setUser("");
     proxy.setPassword("");
+#ifdef DEFINE_DEPENT_PROXY
     QNetworkProxy::setApplicationProxy(proxy);
+#endif
 }
 
 void GetWebInfo::doDownload(const QUrl &url)
 {
     QNetworkRequest request(url);
+
+    request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysNetwork);
+
+#ifndef DEFINE_DEPENT_PROXY
+    manager.setProxy(proxy);
+#endif
     manager.get(request);
 
 }
