@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dialog.ui'
 **
-** Created: Thu Feb 21 10:26:28 2013
+** Created: Thu Mar 7 10:57:45 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -56,7 +56,7 @@ public:
         pushButton->setFont(font1);
         layoutWidget1 = new QWidget(Dialog);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(20, 200, 109, 25));
+        layoutWidget1->setGeometry(QRect(20, 200, 121, 31));
         horizontalLayout = new QHBoxLayout(layoutWidget1);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -67,15 +67,15 @@ public:
         QFont font2;
         font2.setPointSize(11);
         label_2->setFont(font2);
-        label_2->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
+        label_2->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
         horizontalLayout->addWidget(label_2);
 
         lcdNumber_PM25 = new QLCDNumber(layoutWidget1);
         lcdNumber_PM25->setObjectName(QString::fromUtf8("lcdNumber_PM25"));
         lcdNumber_PM25->setFrameShape(QFrame::NoFrame);
-        lcdNumber_PM25->setNumDigits(4);
-        lcdNumber_PM25->setDigitCount(4);
+        lcdNumber_PM25->setNumDigits(5);
+        lcdNumber_PM25->setDigitCount(5);
         lcdNumber_PM25->setSegmentStyle(QLCDNumber::Flat);
         lcdNumber_PM25->setProperty("value", QVariant(0));
 

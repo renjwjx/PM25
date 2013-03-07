@@ -1,6 +1,6 @@
 #include "getwebinfo.h"
 
-
+#define DEFINE_DEPENT_PROXY
 GetWebInfo::GetWebInfo(QObject *parent) :
     QObject(parent)
 {
@@ -8,10 +8,19 @@ GetWebInfo::GetWebInfo(QObject *parent) :
             SLOT(downloadFinished(QNetworkReply*)));
     //set proxy
     proxy.setType(QNetworkProxy::HttpProxy);
+
+
     proxy.setHostName("138.120.252.81");
     proxy.setPort(80);
     proxy.setUser("");
     proxy.setPassword("");
+#ifdef DEFINE_DEPENT_PROXY
+    QFlags<QNetworkProxy::Capability> proxycap;
+    proxycap = proxy.capabilities();
+//    proxycap &=~(QNetworkProxy::CachingCapability);
+    proxy.setCapabilities(proxycap);
+#endif
+
 #ifdef DEFINE_DEPENT_PROXY
     QNetworkProxy::setApplicationProxy(proxy);
 #endif

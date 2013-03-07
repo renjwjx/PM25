@@ -6,7 +6,7 @@
 #include <QDesktopServices>
 #include <QTextCodec>
 
-#define URL_QUERY
+//#define URL_QUERY
 
 QString url_str = "http://utils.usembassy.gov/feed2js/feed2js.php";
 QString url_query = "http://www.beijingaqifeed.com/shanghaiaqi/shanghaiairrss.xml&desc=1&num=18&targ=y&utf=y&pc=y&words=40&";
